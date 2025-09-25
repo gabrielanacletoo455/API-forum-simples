@@ -26,7 +26,6 @@ Esta API foi criada para servir como backend para uma aplicação mobile de fór
 - **💬 Comentários**: Sistema completo de comentários nos posts
 - **🔍 Busca**: Busca por posts e conteúdo
 - **🔐 Autenticação**: JWT com controle de acesso baseado em roles
-- **📱 Mobile-First**: API otimizada para aplicações mobile
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -88,14 +87,8 @@ DATABASE_PASSWORD=sua_senha
 DATABASE_NAME=condfynews
 ```
 
-5. **Execute as migrações do TypeORM**
-```bash
-npm run migration:run
-# ou
-yarn migration:run
-```
 
-6. **Inicie o servidor**
+5. **Inicie o servidor**
 ```bash
 npm run start:dev
 # ou
@@ -105,7 +98,7 @@ yarn start:dev
 ### 🌐 Acessando a API
 
 - **API**: http://localhost:3000
-- **Swagger**: http://localhost:3000/api
+- **Swagger**: http://localhost:3000/docs
 
 ## 📚 Documentação da API
 
@@ -113,7 +106,7 @@ yarn start:dev
 
 Acesse a documentação interativa da API em:
 ```
-http://localhost:3000/api
+http://localhost:3000/docs
 ```
 
 O Swagger fornece:
@@ -291,15 +284,6 @@ src/
    - Configure as variáveis de ambiente
    - Deploy automático a cada push
 
-### 🐳 Docker (Opcional)
-
-```bash
-# Build da imagem
-docker build -t condfynews-api .
-
-# Executar container
-docker run -p 3000:3000 condfynews-api
-```
 
 ## 🤝 Contribuindo
 
@@ -317,9 +301,9 @@ Este é um projeto de estudo, mas sugestões e melhorias são bem-vindas!
 
 **Gabriel** - Desenvolvedor Frontend Junior
 
-- 📧 Email: [seu-email@dev.com]
-- 💼 LinkedIn: [seu-linkedin]
-- 🐙 GitHub: [seu-github]
+- 📧 Email: [gabrielanacleto159@gmail.com]
+- 💼 LinkedIn: [https://www.linkedin.com/in/gabriel-anacletoo]
+- 🐙 GitHub: [https://github.com/gabrielanacletoo455]
 
 ---
 
