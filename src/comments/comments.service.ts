@@ -3,9 +3,9 @@ import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '@/users/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 import { Comment } from './entities/comment.entity';
-import { Post } from '@/posts/entities/post.entity';
+import { Post } from '../posts/entities/post.entity';
 
 
 @Injectable()

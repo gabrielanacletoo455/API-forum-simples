@@ -2,11 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { CurrentUser } from '@/auth/decorators/current-user.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { User } from './entities/user.entity';
-import { AuthGuard } from '@/auth/guards/auth-guard';
-import { RolesGuards } from '@/auth/guards/role-guard';
-import { Roles } from '@/auth/decorators/roles';
+import { AuthGuard } from '../auth/guards/auth-guard';
+import { RolesGuards } from '../auth/guards/role-guard';
+import { Roles } from '../auth/decorators/roles';
 import { RoleEnum } from '../enums/role.enum';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiCreatedResponse, ApiExcludeEndpoint, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ResponseCreatedUserDoc } from './docs/responseCreatedUser.doc';

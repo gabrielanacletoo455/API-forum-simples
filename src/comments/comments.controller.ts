@@ -2,10 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
-import { AuthGuard } from '@/auth/guards/auth-guard';
-import { RolesGuards } from '@/auth/guards/role-guard';
-import { CurrentUser } from '@/auth/decorators/current-user.decorator';
-import { User } from '@/users/entities/user.entity';
+import { AuthGuard } from '../auth/guards/auth-guard';
+import { RolesGuards } from '../auth/guards/role-guard';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { User } from '../users/entities/user.entity';
 import { ApiBearerAuth, ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateCommentDoc } from './docs/CreateCommentDoc';
 import { COMMENT_RESPONSES } from './docs/swagger-responses.constants';

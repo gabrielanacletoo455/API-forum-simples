@@ -19,8 +19,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { LoginDTO } from './dto/login.dto';
 import { UpdateUserDto } from 'src/users/dto/update-user.dto';
 import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { ResponseCreatedUserDoc } from '@/users/docs/responseCreatedUser.doc';
-import { CreateUserDoc, ResponseCreateUserEmailExistDoc } from '@/users/docs/createUser.doc';
+import { ResponseCreatedUserDoc } from '../users/docs/responseCreatedUser.doc';
+import { CreateUserDoc, ResponseCreateUserEmailExistDoc } from '../users/docs/createUser.doc';
 import { LoginDoc } from './docs/authLogin.doc';
 import { OkResponseLoginDoc, UnauthorizedResponseLoginDoc } from './docs/responseLogin.doc';
 
