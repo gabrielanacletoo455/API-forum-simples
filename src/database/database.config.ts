@@ -22,9 +22,9 @@ export default <TypeOrmModuleAsyncOptions>{
       entities: [User, Post, Comment],
       synchronize: true,
       cache: true,
-      // ssl: {
-      // rejectUnauthorized: false
-      // }
+      ssl: {
+      rejectUnauthorized: false
+      }
       //ssl: false
     };
   },
