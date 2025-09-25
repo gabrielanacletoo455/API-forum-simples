@@ -1,8 +1,8 @@
-# 🚀 DevConnect API - Fórum de Desenvolvedores
+# 🚀 CondfyNews API - Fórum de Desenvolvedores
 
 > **API REST para fórum de desenvolvedores criada para fins de estudo e prática com React Native**
 
-Uma API completa e funcional para um fórum de desenvolvedores, construída com **NestJS**, **TypeScript** e **PostgreSQL**. Esta API foi desenvolvida como projeto de estudo para aprender React Native, fornecendo um backend robusto para uma aplicação mobile de fórum.
+Uma API completa e funcional para um fórum de desenvolvedores, construída com **NestJS**,**TypeORM** , **TypeScript**  e **PostgreSQL**. Esta API foi desenvolvida como projeto de estudo para aprender React Native, fornecendo um backend robusto para uma aplicação mobile de fórum.
 
 ## 📋 Índice
 
@@ -33,11 +33,21 @@ Esta API foi criada para servir como backend para uma aplicação mobile de fór
 - **NestJS** - Framework Node.js para APIs
 - **TypeScript** - Tipagem estática
 - **PostgreSQL** - Banco de dados relacional
-- **TypeORM** - ORM para TypeScript
+- **TypeORM** - ORM para TypeScript com migrations automáticas
 - **JWT** - Autenticação e autorização
 - **Swagger** - Documentação automática da API
 - **Class Validator** - Validação de dados
 - **Bcrypt** - Criptografia de senhas
+
+### 🗄️ TypeORM - Gerenciamento de Banco de Dados
+
+O projeto utiliza **TypeORM** como ORM principal, oferecendo:
+
+- **🔄 Migrations Automáticas**: Controle de versão do banco de dados
+- **📊 Relacionamentos**: One-to-Many, Many-to-One entre entidades
+- **🔍 Queries Otimizadas**: Consultas eficientes com joins automáticos
+- **🛡️ Type Safety**: Tipagem completa das entidades e queries
+- **⚡ Performance**: Lazy loading e eager loading inteligente
 
 ## 🚀 Como Iniciar o Projeto
 
@@ -52,7 +62,7 @@ Esta API foi criada para servir como backend para uma aplicação mobile de fór
 1. **Clone o repositório**
 ```bash
 git clone <url-do-repositorio>
-cd backDevConnect
+cd CondfyNews
 ```
 
 2. **Instale as dependências**
@@ -75,10 +85,10 @@ DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USERNAME=seu_usuario
 DATABASE_PASSWORD=sua_senha
-DATABASE_NAME=devconnect
+DATABASE_NAME=condfynews
 ```
 
-5. **Execute as migrações**
+5. **Execute as migrações do TypeORM**
 ```bash
 npm run migration:run
 # ou
@@ -224,6 +234,50 @@ src/
 - Filtros por autor
 - Ordenação por relevância e data
 
+## 🗄️ Estrutura do Banco de Dados (TypeORM)
+
+### 📊 **Entidades Principais**
+
+#### **👤 User (Usuários)**
+```typescript
+- id: number (PK)
+- userName: string
+- email: string
+- password: string (hash)
+- role: 'client' | 'admin'
+- posts: Post[] (One-to-Many)
+- comments: Comment[] (One-to-Many)
+```
+
+#### **📝 Post (Posts)**
+```typescript
+- id: number (PK)
+- title: string
+- content: string
+- imageUrl: string (opcional)
+- authorId: number (FK)
+- author: User (Many-to-One)
+- comments: Comment[] (One-to-Many)
+```
+
+#### **💬 Comment (Comentários)**
+```typescript
+- id: number (PK)
+- content: string
+- authorId: number (FK)
+- postId: number (FK)
+- author: User (Many-to-One)
+- post: Post (Many-to-One)
+```
+
+### 🔗 **Relacionamentos TypeORM**
+- **User → Posts**: One-to-Many (um usuário pode ter vários posts)
+- **User → Comments**: One-to-Many (um usuário pode ter vários comentários)
+- **Post → Comments**: One-to-Many (um post pode ter vários comentários)
+- **Post → User**: Many-to-One (um post pertence a um usuário)
+- **Comment → User**: Many-to-One (um comentário pertence a um usuário)
+- **Comment → Post**: Many-to-One (um comentário pertence a um post)
+
 ## 🚀 Deploy
 
 ### 🌐 Vercel (Recomendado)
@@ -241,10 +295,10 @@ src/
 
 ```bash
 # Build da imagem
-docker build -t devconnect-api .
+docker build -t condfynews-api .
 
 # Executar container
-docker run -p 3000:3000 devconnect-api
+docker run -p 3000:3000 condfynews-api
 ```
 
 ## 🤝 Contribuindo
