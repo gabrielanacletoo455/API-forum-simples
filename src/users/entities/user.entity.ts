@@ -13,7 +13,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { RoleEnum } from '@/enums/role.enum';
+import { RoleEnum } from '../../enums/role.enum';
 import { Post } from '@/posts/entities/post.entity';
 import { Comment } from '@/comments/entities/comment.entity';
 

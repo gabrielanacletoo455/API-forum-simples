@@ -7,7 +7,7 @@ import { User } from './entities/user.entity';
 import { AuthGuard } from '@/auth/guards/auth-guard';
 import { RolesGuards } from '@/auth/guards/role-guard';
 import { Roles } from '@/auth/decorators/roles';
-import { RoleEnum } from '@/enums/role.enum';
+import { RoleEnum } from '../enums/role.enum';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiCreatedResponse, ApiExcludeEndpoint, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ResponseCreatedUserDoc } from './docs/responseCreatedUser.doc';
 import { MyInformationResponseDoc } from './docs/myInformation';
