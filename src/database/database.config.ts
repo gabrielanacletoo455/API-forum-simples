@@ -1,9 +1,9 @@
-import { User } from '@/users/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
-import { Post } from '@/posts/entities/post.entity';
-import { Comment } from '@/comments/entities/comment.entity';
+import { Post } from '../posts/entities/post.entity';
+import { Comment } from '../comments/entities/comment.entity';
 
 export default <TypeOrmModuleAsyncOptions>{
   imports: [ConfigModule],
