@@ -15,7 +15,7 @@ import { JwtService } from '@nestjs/jwt';
 import { FileDTO } from './dto/files.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { UpdateUserDto } from '../users/dto/update-user.dto';
-import { User } from '@/users/entities/user.entity';
+import { User } from '../users/entities/user.entity';
 
 @Injectable()
 export class AuthService {
