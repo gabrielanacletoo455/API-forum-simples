@@ -85,8 +85,7 @@ export class PostsService {
     }
   }
 
-  async findAllPostsByAuthorId(id: number) {
-    console.log('id', id);
+  async findAllPostsByAuthorId(id: number) {;
     try {
       return await this.postsRepository.find({ 
         where: { authorId: id }, 

@@ -95,9 +95,9 @@ export class PostsController {
   @POST_RESPONSES.MY_COMMENTED.UNAUTHORIZED
   @POST_RESPONSES.MY_COMMENTED.INTERNAL_ERROR
   @UseGuards(AuthGuard, RolesGuards)
-  @Get('my-commented')
-  findAllPostsICommented(@CurrentUser() currentUser: User) {
-    return this.postsService.findPostsCommentedByUser(+currentUser.id);
+  @Get('my-commented/:id')
+  findAllPostsICommented(@Param('id') id: string) {
+    return this.postsService.findPostsCommentedByUser(+id);
   }
 
 
