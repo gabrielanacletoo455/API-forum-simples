@@ -44,8 +44,8 @@ export class UsersService {
           'photoProfile',
           'bioDescription',
           'website',
-          'gender',
-          'birthDate',
+          'instagram',
+          'linkedin',
           'createdAt',
         ],
         relations: ['posts', 'posts.comments'],
@@ -75,11 +75,11 @@ export class UsersService {
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    console.log('chegou na service', updateUserDto);
+
     try {
       const user = await this.findOne(id);
       if (!user) throw new NotFoundException('User not found');
-      console.log('encontrou o usuario', user);
+    
       // Se tiver senha no DTO, encripta
       if (updateUserDto.password) {
         updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
