@@ -2,10 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Query } f
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { RolesGuards } from '@/auth/guards/role-guard';
-import { AuthGuard } from '@/auth/guards/auth-guard';
-import { CurrentUser } from '@/auth/decorators/current-user.decorator';
-import { User } from '@/users/entities/user.entity';
+import { RolesGuards } from '../auth/guards/role-guard';
+import { AuthGuard } from '../auth/guards/auth-guard';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { User } from '../users/entities/user.entity';
 import { ApiBearerAuth, ApiBody, ApiExcludeEndpoint, ApiTags } from '@nestjs/swagger';
 import { CreatePostDoc } from './docs/createPost.doc';
 import { POST_RESPONSES } from './docs/swagger-responses.constants';
@@ -95,9 +95,9 @@ export class PostsController {
   @POST_RESPONSES.MY_COMMENTED.UNAUTHORIZED
   @POST_RESPONSES.MY_COMMENTED.INTERNAL_ERROR
   @UseGuards(AuthGuard, RolesGuards)
-  @Get('my-commented')
-  findAllPostsICommented(@CurrentUser() currentUser: User) {
-    return this.postsService.findPostsCommentedByUser(+currentUser.id);
+  @Get('my-commented/:id')
+  findAllPostsICommented(@Param('id') id: string) {
+    return this.postsService.findPostsCommentedByUser(+id);
   }
 
 
